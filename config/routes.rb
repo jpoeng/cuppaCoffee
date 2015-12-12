@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  resources :users, only: [:index, :show, :edit, :update]
+
   resources :drinks
 
   # post request to /search will go to the drinks controller and action search
