@@ -1,10 +1,20 @@
 class DrinksController < ApplicationController
   before_action :set_drink, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @drinks = Drink.where(name: params[:name])
+    render 'index'
+  end
+
   # GET /drinks
   # GET /drinks.json
   def index
+    if params[:brand]
+      @drinks = Drink.where(brand: params[:brand])
+    else
+    # By default this renders index
       @drinks = Drink.all
+    end
   end
 
   # GET /drinks/1

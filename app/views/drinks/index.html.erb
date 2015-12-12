@@ -2,6 +2,21 @@
 
 <h1>Listing Drinks</h1>
 
+<%= link_to "Drinks from Starbucks", drinks_path(brand: "Starbucks") %>
+
+<!-- By default all forms make a post request to the specified route -->
+<br><br>
+<%= form_tag "/search" do %>
+  <div class="field">
+    <%= label_tag :name %><br>
+    <%= text_field_tag :name %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Search" %>
+  </div>
+<% end %>
+<br><br>
+
 <table>
   <thead>
     <tr>

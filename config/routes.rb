@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :drinks
 
+  # post request to /search will go to the drinks controller and action search
+  post '/search' => 'drinks#search', as: :search
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
