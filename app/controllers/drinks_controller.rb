@@ -39,9 +39,13 @@ class DrinksController < ApplicationController
 
     respond_to do |format|
       if @drink.save
-        format.html { redirect_to @drink, notice: 'Drink was successfully created.' }
+        flash[:success] = 'Drink was successfully created.'
+        format.html { redirect_to @drink }
+      # if @drink.save
+      #   format.html { redirect_to @drink, notice: 'Drink was successfully created.' }
         format.json { render :show, status: :created, location: @drink }
       else
+        flash[:danger] = 'There was a problem creating the Drink.'
         format.html { render :new }
         format.json { render json: @drink.errors, status: :unprocessable_entity }
       end
@@ -53,9 +57,13 @@ class DrinksController < ApplicationController
   def update
     respond_to do |format|
       if @drink.update(drink_params)
-        format.html { redirect_to @drink, notice: 'Drink was successfully updated.' }
+        flash[:success] = 'Drink was successfully updated.'
+        format.html { redirect_to @drink }
+      # if @drink.update(drink_params)
+      #   format.html { redirect_to @drink, notice: 'Drink was successfully updated.' }
         format.json { render :show, status: :ok, location: @drink }
       else
+        flash[:danger] = 'There was a problem updating the Drink.'
         format.html { render :edit }
         format.json { render json: @drink.errors, status: :unprocessable_entity }
       end
@@ -66,9 +74,13 @@ class DrinksController < ApplicationController
   # DELETE /drinks/1.json
   def destroy
     @drink.destroy
+
     respond_to do |format|
-      format.html { redirect_to drinks_url, notice: 'Drink was successfully destroyed.' }
-      format.json { head :no_content }
+      flash[:success] = 'Drink was successfully destroyed.'
+      format.html { redirect_to drinks_url }
+    # respond_to do |format|
+    #   format.html { redirect_to drinks_url, notice: 'Drink was successfully destroyed.' }
+    #   format.json { head :no_content }
     end
   end
 
