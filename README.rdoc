@@ -1,28 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Getting Started
+1. <tt>$ git clone https://github.com/jpoeng/icoffee.git</tt> to clone repo
+2. <tt>$ cd icoffee</tt> to cd into directory
+3. <tt>$ bundle install</tt> to install gem dependencies
+4. <tt>$ be rake db:create</tt> to create database
+5. <tt>$ be rake db:migrate</tt> to run migrations
+6. <tt>$ rails s</tt> to start server
+7. Go to <tt>localhost:3000/</tt> in your browser
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== RSpec Tests
+1. <tt>$ bin/rake db:migrate RAILS_ENV=test</tt> to migrate test database
+2. <tt>$ rspec</tt>
