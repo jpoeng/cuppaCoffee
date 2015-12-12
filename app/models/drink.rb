@@ -1,4 +1,5 @@
 class Drink < ActiveRecord::Base
+  belongs_to :user
 
   ERRCODE = 1
 

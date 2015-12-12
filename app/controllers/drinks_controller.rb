@@ -35,6 +35,7 @@ class DrinksController < ApplicationController
   # POST /drinks.json
   def create
     @drink = Drink.new(drink_params)
+    @drink.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @drink.save
