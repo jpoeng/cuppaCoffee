@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :drinks
 
   # post request to /search will go to the drinks controller and action search
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'drinks#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
