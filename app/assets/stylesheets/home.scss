@@ -1,0 +1,36 @@
+#sidebar {
+  background-color: #f9f9f9;
+  padding: 10px 10px;
+  border: 2px solid pink;
+}
+
+.glyphicon {
+  color: pink;
+}
+
+.jumbotron {
+  background-color: #75ebdb !important;
+
+  h1 {
+    color: #ffffff !important;
+    font-weight: bolder;
+  }
+
+  .pink {
+    color: pink;
+    font-size: 1.5em;
+  }
+}
+
+.navbar {
+  .container div { display: inline-block }
+
+  .navbar-links {
+    float: right;
+    ul.nav.navbar-nav {
+      li {
+        display: inline-block;
+      }
+    }
+  }
+}
