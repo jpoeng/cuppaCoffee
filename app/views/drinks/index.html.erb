@@ -33,14 +33,27 @@
 
   <tbody>
     <% @drinks.each do |drink| %>
-    <% user = User.find(drink.user_id) %>
       <tr>
-        <td><span class="glyphicon glyphicon-heart"></span> <%= user.first_name %> had a <%= drink.name %> from <%= drink.brand %> on <%= drink.created_at.strftime("%x") %></td>
+        <td><span class="glyphicon glyphicon-heart"></span> User <%= drink.user_id %> had a <%= drink.name %> from <%= drink.brand %> on <%= drink.created_at.strftime("%x") %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<p>[Drink should be deleted when user is deleted]</p>
 <br>
 
 <%= link_to 'New Drink', new_drink_path %>
+
+<h1>cuppaCoffee drinkers</h1>
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
