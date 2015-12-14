@@ -1,8 +1,8 @@
 == README
 
 === Getting Started
-1. <tt>$ git clone https://github.com/jpoeng/icoffee.git</tt> to clone repo
-2. <tt>$ cd icoffee</tt> to cd into directory
+1. <tt>$ git clone https://github.com/jpoeng/cuppacoffee.git</tt> to clone repo
+2. <tt>$ cd cuppacoffee</tt> to cd into directory
 3. <tt>$ bundle install</tt> to install gem dependencies
 4. <tt>$ be rake db:create</tt> to create database
 5. <tt>$ be rake db:migrate</tt> to run migrations
