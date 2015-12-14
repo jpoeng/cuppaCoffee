@@ -12,3 +12,9 @@
 == RSpec Tests
 1. <tt>$ bin/rake db:migrate RAILS_ENV=test</tt> to migrate test database
 2. <tt>$ rspec</tt>
+
+== Technologies/Tools
+1. Devise
+2. Google Maps for Rails Gem: https://github.com/apneadiving/Google-Maps-for-Rails
+
+== To Do
