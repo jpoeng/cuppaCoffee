@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'geocoder'
+gem 'gmaps4rails'
 gem 'rename'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'

@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  geocoded_by :address
+  after_validation :geocode
+
   has_many :drinks
   # Add validation for user attributes
+
 end
