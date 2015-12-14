@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'rename'
