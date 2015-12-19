@@ -47,7 +47,7 @@
   </style>
 
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCg_O_lXUOWrL7NJbzGbpGg-d-YWb8hIAc"></script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCg_O_lXUOWrL7NJbzGbpGg-d-YWb8hIAc"></script> -->
 
 <script>
 // global variables that is can be accessed throughout the program
@@ -126,6 +126,6 @@ function clearResults(markers) {
 }
 
 // listener waits for load action then calls initialize
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'page:load', initialize);
 
 </script>
