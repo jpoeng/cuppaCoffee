@@ -23,7 +23,6 @@
 
   <%= render 'shared/navigation' %>
 
-
   <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
   <% end %>
@@ -77,9 +76,9 @@
         <% marker.lng user.longitude %>
       <% end %>
 
-      <!-- <div style='width: 800px;'> -->
-        <!-- <div id="map" style='width: 800px; height: 400px;'></div> -->
-      <!-- </div> -->
+      <div style='width: 800px;'>
+        <div id="map_canvas" style='width: 800px; height: 400px;'></div>
+      </div>
     </div>
 
     <hr>
@@ -95,13 +94,14 @@
       <%# link_to "Sign up", new_user_registration_path %> |
       <%# link_to "Login", new_user_session_path %> | -->
       <% end %>
+      <%= @hash.to_json %>
       </div>
     </div>
   </div><!-- /#main-container -->
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  handler.buildMap({ provider: {}, internal: {id: 'map_canvas'}}, function(){
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
