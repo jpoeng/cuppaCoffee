@@ -1,18 +1,18 @@
 class RegistrationsController < Devise::RegistrationsController
-  private
+  # private
 
   # Modified Devise params for user login
   # def sign_up_params
   #   params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   # end
 
-  def sign_up_params
-    devise_parameter_sanitizer.sanitize(:sign_up)
-  end
+  # def sign_up_params
+  #   devise_parameter_sanitizer.sanitize(:sign_up)
+  # end
 
-  def account_update_params
-    devise_parameter_sanitizer.sanitize(:account_update)
-  end
+  # def account_update_params
+  #   devise_parameter_sanitizer.sanitize(:account_update)
+  # end
 
   private
 
@@ -31,11 +31,11 @@ class RegistrationsController < Devise::RegistrationsController
     # end
 
     def sign_up_params
-      params.require(:user).permit(:first_name, :last_name, :address, :description, :latitude, :longitude, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :address, :description, :email, :password, :password_confirmation)
     end
 
     def account_update_params
-      params.require(:user).permit(:first_name, :last_name, :address, :description, :latitude, :longitude, :email, :password, :password_confirmation, :current_password)
+      params.require(:user).permit(:first_name, :last_name, :address, :description, :email, :password, :password_confirmation, :current_password)
     end
 
 end

@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+# Delete this line? Represents different version
 ActiveRecord::Schema.define(version: 20151214183343) do
+ActiveRecord::Schema.define(version: 20151215073414) do
 
   create_table "drinks", force: :cascade do |t|
     t.string   "name"
