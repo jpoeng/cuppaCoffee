@@ -13,11 +13,10 @@
   <script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js"></script>
   <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 </head>
-<body>
+<body id="bootstrap-overrides">
+  <%= render 'shared/navigation' %><!-- /.navbar -->
 
-  <%= render 'shared/navigation' %>
-
-
+  <!-- Alert for user registration/login status-->
   <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
   <% end %>
@@ -25,12 +24,15 @@
   <p class="alert alert-danger"><%= alert %></p>
   <% end %>
 
-  <div id="main-container" class="container">
-    <div class="jumbotron">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div id="main-container" class="jumbotron">
+    <div class="container">
       <h1>cuppa<span class="pink">Coffee</span></h1>
       <p>Count your cups!</p>
     </div>
+  </div>
 
+<div class="container-fluid">
     <div class="row">
       <div class="col-xs-12">
         <% flash.each do |name, msg| -%>
@@ -39,7 +41,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div id="about" class="row">
       <!-- sidebar content -->
       <div id="sidebar" class="col-md-3 col-md-push-9">
         <h1>About cuppaCoffee</h1>
