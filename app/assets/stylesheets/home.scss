@@ -9,15 +9,31 @@
     margin-bottom: 0px;
     padding: 30px;
   }
+  .row {
+    padding: 30px;
+  }
 }
+
 
 #sidebar {
   background-color: #f9f9f9;
-  padding: 10px 10px;
-  border: 2px solid #ffffff;
+  /*padding: 10px 10px;*/
+/*  border: 2px solid #ffffff;
   border-radius: 16px 16px;
-  box-shadow: 2px 2px 10px #B1B1B1;
-  border-width: 7px;
+  box-shadow: 2px 2px 10px #B1B1B1;*/
+  /*border-width: 7px;*/
+}
+
+#app-info {
+  p {
+    font-size: 18px;
+    text-align: justify;
+    line-height: 30px;
+  }
+}
+
+#main-map {
+  background-color: lightblue;
 }
 
 .glyphicon {
@@ -55,6 +71,12 @@
   }
 }
 
-#about {
-  background-color: pink;
+#main-container {
+  background-color: #fff;
+}
+
+footer {
+  height: 45px;
+  padding-top: 15px;
+  text-align: center;
 }
