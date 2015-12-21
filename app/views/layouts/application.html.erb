@@ -24,8 +24,8 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1>cuppa<span class="pink">Coffee</span></h1>
-      <p>Count your cups!</p>
+      <h1>c<img src="http://www.lakotacoffee.com/wp-content/uploads/sites/60/2013/12/Lakota-background-cup.png" width="75px">ppa<span class="pink">Coffee</span></h1>
+      <h3>Count your cups!</h3>
       <!-- Facebook like/share button -->
       <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
       </div>
@@ -50,23 +50,35 @@
             </div>
           </div> -->
 <div class="wrapper">
+  <% if !user_signed_in? %>
   <div class="container-fluid">
-    <div class="row">
-      <% if !current_user %>
-      <div id="app-info" class="col-md-4 col-md-offset-2">
+    <div id="main-content" class="row">
+      <div class="col-md-4">
+        <%= image_tag "four_different_coffees.jpg" %></p>
+      </div>
+      <div class="col-md-4 about">
         <h1>About cuppaCoffee</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      <div class="col-md-4">
-      <% else %>
-      <div>
-      <% end %>
+      </div><!-- /.about -->
+    <% else %>
+    <div class="container">
+      <div id="main-content" class="row">
+    <% end %>
       <%= yield %>
-      </div>
-    </div><!-- row -->
-  </div>
+    </div><!-- /.row#main-content -->
 
-  <div class="container-fluid">
+    <% if user_signed_in? %>
+      <div class="row current-user-links">
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to "Settings", edit_user_path(current_user) %> |
+        <%= link_to "Account", edit_user_registration_path %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <%# else %>
+        <!-- <%# link_to "Sign up", new_user_registration_path %> | -->
+        <!-- <%# link_to "Login", new_user_session_path %> | -->
+      </div><!-- /.row.current-user-links -->
+    <% end %>
+
     <% if !current_user %>
     <div id="main-map" class="row">
       <div class="col-sm-8 col-sm-offset-2">
@@ -81,22 +93,11 @@
           <div id="map_canvas" style='width: 100%; height: 400px;'></div>
         </div>
       </div>
-    </div>
+    </div><!-- /.row#main-map -->
     <% end %>
+  </div><!-- /.container -->
+</div><!-- /.wrapper -->
 
-    <% if user_signed_in? %>
-    <div class="row">
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to "Settings", edit_user_path(current_user) %> |
-      <%= link_to "Account", edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      <%# else %>
-      <!-- <%# link_to "Sign up", new_user_registration_path %> | -->
-      <!-- <%# link_to "Login", new_user_session_path %> | -->
-    </div>
-    <% end %>
-  </div>
-</div>
 
 <footer>
   <div class="container-fluid">

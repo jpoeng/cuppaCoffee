@@ -4,14 +4,24 @@
   <li><%= link_to 'Profile', current_user %></li>
 </ul>
 
+<div class="tab-content">
+<div class="">
+  <%= render 'drinks/index' %>
+</div>
+</div>
+</div><!-- /.row#main-content -->
+
+<hr />
+
 <div class="row">
-  <div class="col-md-6">
-    <%= render 'drinks/index' %>
+  <h3>cuppaCoffee drinkers around the world</h3>
+  <% @users = User.all %>
+  <% @hash = Gmaps4rails.build_markers(@users) do |user, marker| %>
+    <% marker.lat user.latitude %>
+    <% marker.lng user.longitude %>
+  <% end %>
+
+  <div style='width: 100%;'>
+    <div id="map_canvas" style='width: 100%; height: 400px;'></div>
   </div>
-  <!-- sidebar content -->
-  <div id="sidebar" class="col-md-6">
-    <h1>About cuppaCoffee</h1>
-    <p>If you're anything like me, our mornings haven't begun until the that first cup of coffee. I drink coffee almost, if not almost always, everyday and I'm PROUD OF IT! To prove it to the rest of the world, I've created this simple coffee app to track all the delicious coffee I've consumed on a daily basis. At the end of the month, I can brag about all the deliciousness I've consumed!</p>
-    <p>Do you love coffee as much as I do? If so, create an cuppaCoffee account today to get started!</p>
-  </div><!-- /#sidebar -->
 </div>

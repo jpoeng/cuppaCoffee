@@ -8,7 +8,8 @@
 </ul>
 
  -->
-<h1>Who's Drinkin' What?</h1>
+<div class="table-responsive">
+  <h1>Who's Drinkin' What?</h1>
 
 <%# link_to "Drinks from Starbucks", drinks_path(brand: "Starbucks") %>
 
@@ -25,7 +26,7 @@
 <%# end %>
 <br><br> -->
 
-<table class="table-bordered table-striped table-responsive table-condensed">
+<table class="table table-striped">
   <thead>
     <tr>
       <th colspan="5">Coffee, coffee, coffee!</th>
@@ -43,4 +44,7 @@
 <p>[Drink should be deleted when user is deleted]</p>
 <br>
 
-<%= link_to 'New Drink', new_drink_path %>
+<%= link_to new_drink_path, class: 'btn btn-info' do %>
+<i class="glyphicon glyphicon-plus"> <span class="btn-white-text">DRINK</span></i>
+<% end %>
+</div><!-- /.table-responsive -->
