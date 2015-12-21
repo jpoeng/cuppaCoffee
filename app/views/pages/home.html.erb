@@ -1,0 +1,27 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'Home', pages_home_path %></li>
+  <li><%= link_to 'Add drink', new_drink_path %></li>
+  <li><%= link_to 'Profile', current_user %></li>
+</ul>
+
+<div class="tab-content">
+<div class="">
+  <%= render 'drinks/index' %>
+</div>
+</div>
+</div><!-- /.row#main-content -->
+
+<hr />
+
+<div class="row">
+  <h3>cuppaCoffee drinkers around the world</h3>
+  <% @users = User.all %>
+  <% @hash = Gmaps4rails.build_markers(@users) do |user, marker| %>
+    <% marker.lat user.latitude %>
+    <% marker.lng user.longitude %>
+  <% end %>
+
+  <div style='width: 100%;'>
+    <div id="map_canvas" style='width: 100%; height: 400px;'></div>
+  </div>
+</div>
