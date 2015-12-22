@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'pages/home'
+  get '/home' => 'pages#home'
+  get '/about' => 'pages#about'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: "registrations" }
 

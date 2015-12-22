@@ -1,13 +1,34 @@
+* {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Quicksand', sans-serif;
+}
+
 /* See http://stackoverflow.com/questions/19773712/google-maps-doesnt-show-until-i-refresh */
 #bootstrap-overrides {
+  font-family: 'Quicksand', sans-serif;
   .navbar {
     margin-bottom: 0px;
   }
+
+  .navbar-nav > li > a {
+    /*font-weight: bold;*/
+    font-size: 18px;
+  }
+
   .jumbotron {
     background-color: #75ebdb;
     color: #ffffff;
     margin-bottom: 0px;
     padding: 30px;
+    h1 {
+      font-family: 'Indie Flower', cursive;
+      font-size: 5.5em;
+    }
   }
   .row {
     padding: 30px;
@@ -27,15 +48,23 @@ table {
   margin-top: 15px;
 }
 
-#sidebar {
-  background-color: #f9f9f9;
-  /*padding: 10px 10px;*/
-/*  border: 2px solid #ffffff;
-  border-radius: 16px 16px;
-  box-shadow: 2px 2px 10px #B1B1B1;
-  border-width: 7px;*/
-}
+/*.home-drinks-index {*/
+  #map_canvas, #map {
+    /*padding: 10px 10px;*/
+    border: 2px solid #ffffff;
+    border-radius: 16px 16px;
+    box-shadow: 2px 2px 10px #B1B1B1;
+    border-width: 7px;
+    background-color: #fff;
+  }
+/*}*/
 
+.about-project {
+  ul {
+    font-size: 20px;
+    line-height: 40px;
+  }
+}
 .about {
 /*  border: 2px solid #ffffff;
   border-radius: 16px 16px;
@@ -48,9 +77,9 @@ table {
   }
 }
 
-#main-map {
+/*#main-map {
   background-color: lightblue;
-}
+}*/
 
 .glyphicon {
   color: pink;
@@ -102,9 +131,21 @@ table {
   background-color: #fff;
 }
 
-footer {
-  height: 45px;
+.wrapper {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -30px;
+}
+.wrapper:after {
+  content: "";
+  display: block;
+}
+.footer, .wrapper:after {
+  height: 30px;
+}
+.footer {
   padding-top: 15px;
+  height: 45px;
   text-align: center;
   background-color: #ddd;
 }

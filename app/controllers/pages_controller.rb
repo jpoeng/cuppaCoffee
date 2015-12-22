@@ -13,4 +13,8 @@ class PagesController < ApplicationController
       @drinks = Drink.all
     end
   end
+
+  def about
+
+  end
 end

@@ -36,12 +36,11 @@
   <tbody>
     <% @drinks.each do |drink| %>
       <tr>
-        <td><span class="glyphicon glyphicon-heart"></span> <%= User.find(drink.user_id).first_name %> had a(n) <span style="color: turquoise; font-weight: bold;"><%= drink.name.upcase %></span> from <%= drink.brand %> on <%= drink.created_at.strftime("%x") %></td>
+        <td><span class="glyphicon glyphicon-heart"></span> <%= User.find(drink.user_id).first_name %> had a <span style="color: turquoise; font-weight: bold;"><%= drink.name.upcase %></span> from <%= drink.brand %> on <%= drink.created_at.strftime("%x") %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<p>[Drink should be deleted when user is deleted]</p>
 <br>
 
 <%= link_to new_drink_path, class: 'btn btn-info' do %>

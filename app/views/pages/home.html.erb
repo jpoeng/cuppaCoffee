@@ -1,27 +1,55 @@
-<ul class="nav nav-tabs" role="tablist">
-  <li class="active"><%= link_to 'Home', pages_home_path %></li>
-  <li><%= link_to 'Add drink', new_drink_path %></li>
-  <li><%= link_to 'Profile', current_user %></li>
-</ul>
+<% if !user_signed_in? %>
+  <div class="col-md-4">
+    <%= image_tag "four_different_coffees.jpg", width: "100%",class: "responsive" %></p>
+  </div>
+  <div class="col-md-4 about">
+    <h1>About cuppaCoffee</h1>
+    <h3>Welcome to cuppaCoffee!</h3>
+    <p>If you're anything like me, the morning is never complete until you've had that first cup of coffee ... then another ... and then more!</p>
+    <p>With cupppaCoffee, you can start tracking the number of coffee cups you consume each day. Then, brag about it with friends or simply share your love for coffee with the community.</p>
+    <h2><mark>Start counting your cups today!</mark></h2>
+  </div><!-- /.about -->
+  <div class="col-md-4 about text-center" style="margin-top: 50px">
+    <%= image_tag "coffee_beans.jpg", height: "50%" %>
+  </div>
+</div>
 
-<div class="tab-content">
-<div class="">
+<div class="row home-drinks-index" style="background-color: #f9f9f9;">
+  <div class="col-md-6 col-md-offset-3">
   <%= render 'drinks/index' %>
+  </div>
 </div>
-</div>
+
+<div id="main-map" class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h1>cuppaCoffee drinkers around the world</h1>
+    <div style='width: 100%;'>
+      <div id="map_canvas" style='width: 100%; height: 400px;'></div>
+    </div>
+  </div>
+<!-- /.row-->
+
+<% else %>
+
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active"><%= link_to 'Home', home_path %></li>
+    <li><%= link_to 'Add drink', new_drink_path %></li>
+    <li><%= link_to 'Profile', current_user %></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="">
+      <%= render 'drinks/index' %>
+    </div>
+  </div>
 </div><!-- /.row#main-content -->
 
 <hr />
 
-<div class="row">
+<div id="main-map" class="row">
   <h3>cuppaCoffee drinkers around the world</h3>
-  <% @users = User.all %>
-  <% @hash = Gmaps4rails.build_markers(@users) do |user, marker| %>
-    <% marker.lat user.latitude %>
-    <% marker.lng user.longitude %>
-  <% end %>
-
   <div style='width: 100%;'>
     <div id="map_canvas" style='width: 100%; height: 400px;'></div>
   </div>
-</div>
+<!-- /.row -->
+<% end %>

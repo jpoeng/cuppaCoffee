@@ -1,5 +1,6 @@
 class DrinksController < ApplicationController
   before_action :set_drink, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
 
   def search
     @drinks = Drink.where(name: params[:name])
