@@ -44,49 +44,40 @@
   <p class="alert alert-danger"><%= alert %></p>
   <% end %>
 
-        <!--   <div class="container-fluid">
-            <div class="row">
-              <div class="col-xs-12">
-                <%# flash.each do |name, msg| -%>
-                <%#= content_tag :div, msg, class: "alert alert-#{name}" %>
-                <%# end -%>
-              </div>
-            </div>
-          </div> -->
-<div class="wrapper">
-  <% if !user_signed_in? %>
-  <div class="container-fluid">
-    <div id="main-content" class="row">
-    <% else %>
-    <div class="container">
+  <div class="wrapper">
+    <% if !user_signed_in? %>
+    <div class="container-fluid">
       <div id="main-content" class="row">
-    <% end %>
-      <%= yield %>
-    </div><!-- /.row#main-content -->
+      <% else %>
+      <div class="container">
+        <div id="main-content" class="row">
+      <% end %>
+        <%= yield %>
+      </div><!-- /.row#main-content -->
 
-    <% if user_signed_in? %>
-      <div class="row current-user-links">
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to "Settings", edit_user_path(current_user) %> |
-        <%= link_to "Account", edit_user_registration_path %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-        <%# else %>
-        <!-- <%# link_to "Sign up", new_user_registration_path %> | -->
-        <!-- <%# link_to "Login", new_user_session_path %> | -->
-      </div><!-- /.row.current-user-links -->
-    <% end %>
+      <% if user_signed_in? %>
+        <div class="row current-user-links">
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to "Settings", edit_user_path(current_user) %> |
+          <%= link_to "Account", edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <%# else %>
+          <!-- <%# link_to "Sign up", new_user_registration_path %> | -->
+          <!-- <%# link_to "Login", new_user_session_path %> | -->
+        </div><!-- /.row.current-user-links -->
+      <% end %>
 
-    <% if !current_user %>
+      <% if !current_user %>
 
-    <% end %>
-  </div><!-- /.container -->
-</div><!-- /.wrapper -->
+      <% end %>
+    </div><!-- /.container -->
+  </div><!-- /.wrapper -->
 
-<footer class="footer">
-  <div class="container-fluid">
-    Copyright &copy 2015 cuppaCoffee
-  </div>
-</footer>
+  <footer class="footer">
+    <div class="container-fluid">
+      Copyright &copy 2015 cuppaCoffee
+    </div>
+  </footer>
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');

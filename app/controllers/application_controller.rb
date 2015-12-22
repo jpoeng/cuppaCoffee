@@ -9,8 +9,6 @@ class ApplicationController < ActionController::Base
 
     # control the redirects after a successful login
     def after_sign_in_path_for(resource)
-      # current_user
-      # root_path
       home_path
     end
 end

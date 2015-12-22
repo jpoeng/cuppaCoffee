@@ -1,15 +1,5 @@
-<!-- <p id="notice"><%= notice %></p> -->
-
-<!-- <div class="col-md-6 col-md-offset-3">
-<ul class="nav nav-tabs" role="tablist">
-  <li class="active"><%# link_to 'Home', drinks_path %></li>
-  <li><%# link_to 'Add drink', new_drink_path %></li>
-  <li><%# link_to 'Profile', current_user %></li>
-</ul>
-
- -->
 <div class="table-responsive">
-  <h1>Who's Drinkin' What?</h1>
+  <h1>See Who's Drinkin' What?</h1>
 
 <%# link_to "Drinks from Starbucks", drinks_path(brand: "Starbucks") %>
 
@@ -25,22 +15,23 @@
   </div>
 <%# end %>
 <br><br> -->
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th colspan="5">Coffee, coffee, coffee!</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @drinks.each do |drink| %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><span class="glyphicon glyphicon-heart"></span> <%= User.find(drink.user_id).first_name %> had a <span style="color: turquoise; font-weight: bold;"><%= drink.name.upcase %></span> from <%= drink.brand %> on <%= drink.created_at.strftime("%x") %></td>
+        <th colspan="5">Coffee, coffee, coffee!</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @drinks.each do |drink| %>
+        <tr>
+          <td><span class="glyphicon glyphicon-heart"></span> <%= User.find(drink.user_id).first_name %> had a <span style="color: turquoise; font-weight: bold;"><%= drink.name.upcase %></span> from <%= drink.brand %> on <%= drink.created_at.strftime("%x") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
 <%= link_to new_drink_path, class: 'btn btn-info' do %>
